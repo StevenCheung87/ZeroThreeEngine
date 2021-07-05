@@ -136,7 +136,7 @@ class Matrix3
         }
 
         /* Matrix3 operator/(const float s)
-        * Multiplies the elements within the matrix by a number
+        * Multiplies the elements within the matrix by a number (SCALAR)
         */
         Matrix3 operator*(const float s)
         {
@@ -225,5 +225,63 @@ class Matrix3
             MatrixData[2] /= s;
             MatrixData[5] /= s;
             MatrixData[8] /= s;
+        }
+
+        /* Matrix3 operator*(const Matrix3 &m)
+        * Multiplies the elements within the matrix by a number (NON-SCALAR)
+        */
+        Matrix3 operator*(const Matrix3 &m)
+        {
+            // 3x3 matrix - column major. X vector is 0, 1, 2, etc. (openGL prefer way)
+            //    0    3    6
+            //    1    4    7
+            //    2    5    8
+
+            return Matrix3(MatrixData[0] * m.MatrixData[0] + MatrixData[3] * m.MatrixData[1] + MatrixData[6] * m.MatrixData[2],
+                           MatrixData[0] * m.MatrixData[3] + MatrixData[3] * m.MatrixData[4] + MatrixData[6] * m.MatrixData[5],
+                           MatrixData[0] * m.MatrixData[6] + MatrixData[3] * m.MatrixData[7] + MatrixData[6] * m.MatrixData[8],
+
+                           MatrixData[1] * m.MatrixData[0] + MatrixData[4] * m.MatrixData[1] + MatrixData[7] * m.MatrixData[2],
+                           MatrixData[1] * m.MatrixData[3] + MatrixData[4] * m.MatrixData[4] + MatrixData[7] * m.MatrixData[5],
+                           MatrixData[1] * m.MatrixData[6] + MatrixData[4] * m.MatrixData[7] + MatrixData[7] * m.MatrixData[8],
+
+                           MatrixData[2] * m.MatrixData[0] + MatrixData[5] * m.MatrixData[1] + MatrixData[8] * m.MatrixData[2],
+                           MatrixData[2] * m.MatrixData[3] + MatrixData[5] * m.MatrixData[4] + MatrixData[8] * m.MatrixData[5],
+                           MatrixData[2] * m.MatrixData[6] + MatrixData[5] * m.MatrixData[7] + MatrixData[8] * m.MatrixData[8]);
+        };
+        void operator*=(const Matrix3 &m)
+        {
+            // 3x3 matrix - column major. X vector is 0, 1, 2, etc. (openGL prefer way)
+            //    0    3    6
+            //    1    4    7
+            //    2    5    8
+
+            float t1;
+            float t2;
+            float t3;
+
+            t1 = MatrixData[0] * m.MatrixData[0] + MatrixData[3] * m.MatrixData[1] + MatrixData[6] * m.MatrixData[2];
+            t2 = MatrixData[0] * m.MatrixData[3] + MatrixData[3] * m.MatrixData[4] + MatrixData[6] * m.MatrixData[5];
+            t3 = MatrixData[0] * m.MatrixData[6] + MatrixData[3] * m.MatrixData[7] + MatrixData[6] * m.MatrixData[8];
+
+            MatrixData[0] = t1;
+            MatrixData[3] = t2;
+            MatrixData[6] = t3;
+
+            t1 = MatrixData[1] * m.MatrixData[0] + MatrixData[4] * m.MatrixData[1] + MatrixData[7] * m.MatrixData[2];
+            t2 = MatrixData[1] * m.MatrixData[3] + MatrixData[4] * m.MatrixData[4] + MatrixData[7] * m.MatrixData[5];
+            t3 = MatrixData[1] * m.MatrixData[6] + MatrixData[4] * m.MatrixData[7] + MatrixData[7] * m.MatrixData[8];
+
+            MatrixData[1] = t1;
+            MatrixData[4] = t2;
+            MatrixData[7] = t3;
+
+            t1 = MatrixData[2] * m.MatrixData[0] + MatrixData[5] * m.MatrixData[1] + MatrixData[8] * m.MatrixData[2];
+            t2 = MatrixData[2] * m.MatrixData[3] + MatrixData[5] * m.MatrixData[4] + MatrixData[8] * m.MatrixData[5];
+            t3 = MatrixData[2] * m.MatrixData[6] + MatrixData[5] * m.MatrixData[7] + MatrixData[8] * m.MatrixData[8];
+            
+            MatrixData[2] = t1;
+            MatrixData[5] = t2;
+            MatrixData[8] = t3;
         }
 };
