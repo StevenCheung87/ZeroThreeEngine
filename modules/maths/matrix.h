@@ -284,4 +284,14 @@ class Matrix3
             MatrixData[5] = t2;
             MatrixData[8] = t3;
         }
+
+        void SetMatrixAsIdentityMatrix()
+        {
+            for (int i=0; i<9; i++)
+            {
+                MatrixData[i] = 0.0f;
+            }
+
+            MatrixData[0] = MatrixData[4] = MatrixData[8] = 1.0f;
+        }
 };
