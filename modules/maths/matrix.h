@@ -285,6 +285,7 @@ class Matrix3
             MatrixData[8] = t3;
         }
 
+
         /* void SetMatrixAsIdentityMatrix()
         * Sets the matrix as the identity matrix (cell 0, 4 and 8 are set to 1)
         */
