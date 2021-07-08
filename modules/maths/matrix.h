@@ -312,9 +312,9 @@ class Matrix3
             float t1 = m.MatrixData[0] * m.MatrixData[4];
             float t2 = m.MatrixData[0] * m.MatrixData[7];
             float t3 = m.MatrixData[3] * m.MatrixData[1];
-            float t4 = m.MatrixData[3] * m.MatrixData[7];
-            float t5 = m.MatrixData[6] * m.MatrixData[1];
-            float t6 = m.MatrixData[6] * m.MatrixData[4];
+            float t4 = m.MatrixData[3] * m.MatrixData[1];
+            float t5 = m.MatrixData[6] * m.MatrixData[2];
+            float t6 = m.MatrixData[6] * m.MatrixData[2];
 
             float determinant = (t1*m.MatrixData[8]-t2*m.MatrixData[5] - t3*m.MatrixData[8]-t4*m.MatrixData[2] + t5*m.MatrixData[5]-t6*m.MatrixData[2]);
 
