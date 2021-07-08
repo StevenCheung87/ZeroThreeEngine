@@ -365,4 +365,37 @@ class Matrix3
         {
             SetMatrixAsInverseOfGivenMatrix(*this);
         }
+
+        /* void SetMatrixAsTransposeOfGivenMatrix(const Matrix3 &m)
+        * Sets the given matrix int columns from its initial row configuration
+        */
+        void SetMatrixAsTransposeOfGivenMatrix(const Matrix3 &m)
+        {
+            //3x3 Matrix
+            //    0    3    6
+            //    1    4    7
+            //    2    5    8
+
+            //3x3 transposed
+            //  0   1   2
+            //  3   4   5
+            //  6   7   8
+
+            MatrixData[0] = m.MatrixData[0];
+            MatrixData[3] = m.MatrixData[1];
+            MatrixData[6] = m.MatrixData[2];
+            MatrixData[1] = m.MatrixData[3];
+            MatrixData[4] = m.MatrixData[4];
+            MatrixData[7] = m.MatrixData[5];
+            MatrixData[2] = m.MatrixData[6];
+            MatrixData[5] = m.MatrixData[7];
+            MatrixData[8] = m.MatrixData[8];
+        }
+        Matrix3 GetTransposedMatrix()
+        const
+        {
+            Matrix3 result;
+            result.SetMatrixAsTransposeOfGivenMatrix(*this);
+            return result;
+        }
 };
