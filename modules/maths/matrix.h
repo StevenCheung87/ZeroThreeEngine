@@ -28,6 +28,7 @@
 #pragma once
 
 #include <iostream>
+#include "vector.h"
 
 class Matrix3
 {
@@ -397,5 +398,23 @@ class Matrix3
             Matrix3 result;
             result.SetMatrixAsTransposeOfGivenMatrix(*this);
             return result;
+        }
+
+        Vector3 operator*(const Vector3 &v)
+        const
+        {
+            // 3x3 matrix - column major. X vector is 0, 1, 2, etc. (openGL prefer way)
+            //    0    3    6
+            //    1    4    7
+            //    2    5    8
+
+            return Vector3(MatrixData[0] * v.x + MatrixData[3] * v.y + MatrixData[6] * v.z,
+                           MatrixData[1] * v.x + MatrixData[4] * v.y + MatrixData[7] * v.z,
+                           MatrixData[2] * v.x + MatrixData[5] * v.y + MatrixData[8] * v.z);
+        };
+        Vector3 Matrix3::TransformVectorByMatrix(const Vector3 &v)
+        const
+        {
+            return (*this)*v;
         }
 };
