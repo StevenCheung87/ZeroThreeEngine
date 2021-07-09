@@ -33,97 +33,195 @@
 class Vector2
 {
     public:
+        /*!
+         *  @brief x vector component
+         */
         float x;
+        /*!
+         *  @brief y vector component
+         */
         float y;
 
+        /*
+        * @brief Constructor to create a 3D vector with x, y, and z components
+        * 
+        * @param uX x component
+        * @param uY y component
+        * 
+        * @ return Creates a vector with the given x, y and z components
+        */
         Vector2(float uX, float uY)
-            :   x(uX),
-                y(uY){};
+        :   x(uX),
+            y(uY){};
 
-        Vector2(const Vector2 &v);
+        /*
+        * @brief Constructor to create a 2D vector with zero vector components.
+        */
+        Vector2();
 
+        /*
+        * @brief 2D vector desctructor
+        */
         ~Vector2();
 
-        // Adding
+        /*!
+        * @brief Calculates the addition of two vectors.
+        * 
+        * @param v Vector to add.
+        * 
+        * @return Resultant of two vectors.
+        */
         void operator+=(const Vector2 &v)
         {
             x += v.x;
             y += v.y;
         };
+
+        /*!
+        * @brief Calculates the addition of two vectors.
+        * 
+        * @param v 2D vector to add.
+        * 
+        * @return Returns a third vector representing the addition of two vectors.
+        */
         Vector2 operator+(const Vector2 &v)
             const
         {
             return Vector2(x + v.x, y + v.y);
         }
 
-        // Subtracting
+        /*!
+        * @brief Calculates the subtraction of two vectors.
+        * 
+        * @param v Vector to subtract.
+        * 
+        * @return Resultant of two vectors.
+        */
         void operator-=(const Vector2 &v)
         {
             x -= v.x;
             y -= v.y;
         };
+
+        /*!
+        * @brief Calculates the subtraction of two vectors.
+        * 
+        * @param v Vector to subtract.
+        * 
+        * @return Returns a third vector representing the subtraction of two vectors.
+        */
         Vector2 operator-(const Vector2 &v)
             const
         {
             return Vector2(x - v.x, y - v.y);
         }
 
-        /* void operator*=(const float v)
-        * Find the vector when multiplied by v
+        /*!
+        * @brief Calculates the multiplication of a vector by scalar.
+        * 
+        * @param v Scalar.
+        * 
+        * @return Product of multiplcation.
         */
         void operator*=(const float v)
         {
             x *= v;
             y *= v;
         }
+
+        /*!
+        * @brief Calculates the multiplication of a vector by scalar.
+        * 
+        * @param v Scalar.
+        * 
+        * @return Vector representing product.
+        */
         Vector2 operator*(const float v)
         {
             return Vector2(x * v, y * v);
         };
 
-        /* void operator/=(const float v)
-        * Find the vector when divided by v
-        */
+        /*!
+         *  @brief  Division of vector by scalar.
+         *
+         *  @param v Scalar
+         *
+         *  @return Quotient of division.
+         */
         void operator/=(const float v)
         {
             x /= v;
             y /= v;
         }
+
+        /*!
+         *  @brief  Division of vector by scalar.
+         *
+         *  @param v Scalar
+         *
+         *  @return Quotient of division.
+         */
         Vector2 operator/(const float v)
         {
             return Vector2(x / v, y / v);
         };
 
-        /* void operator%=(const float v)
-        * Find the remaining number of a vector when divided by v
-        */
+        /*!
+         *  @brief  Modulus of vector by scalar.
+         *
+         *  @param v Scalar
+         *
+         *  @return Resultant of the modulo of vector by scalar.
+         */
         void operator%=(const float v)
         {
             x *= v;
             y *= v;
         }
+
+        /*!
+         *  @brief  Modulus of vector by scalar.
+         *
+         *  @param v Scalar
+         *
+         *  @return Returns a third vector representing the modulo of vector by scalar.
+         */
         Vector2 operator%(const float v)
         {
             return Vector2((int)x % (int)v, (int)y % (int)y);
         };
 
-        /* void operator*(const float v)
-        * Find the multiplication of two vectors in a 2 dimensional plane
-        */
+        /*!
+         *  @brief  Calculate dot product.
+         *
+         *  @param v Vector
+         *
+         *  @return Resultant of Dot product.
+         */
         float operator*(const Vector2 &v)
             const
         {
             return (x * v.x + y * v.y);
         }
+
+        /*!
+         *  @brief  Calculate dot product.
+         *
+         *  @param v Vector
+         *
+         *  @return Return the Dot product.
+         */
         float dot(const Vector2 &v)
         const
         {
             return (x * v.x + y * v.y);
         };
 
-        /* flaot length*()
-        * Does the math to find the length of a vector
-        */ 
+        /*!
+         *  @brief  Calculate the length of vector.
+         *
+         *  @return Length result.
+         */
         float length()
         {
             return sqrt((x*x)+(y*y));
@@ -133,47 +231,105 @@ class Vector2
 class Vector3
 {
     public:
+        /*!
+         *  @brief x vector component
+         */
         float x;
+
+        /*!
+         *  @brief y vector component
+         */
         float y;
+
+        /*!
+         *  @brief z vector component
+         */
         float z;
 
+        /* 
+        * @brief Constructor to create a 3D vector with x,y, and z components
+        * 
+        * @param uX x component 
+        * @param uY y component
+        *  @param uZ z component
+        * 
+        * @return Creates a vector with the given x,y and z components
+        */
         Vector3(float uX, float uY, float uZ)
             :   x(uX),
                 y(uY),
                 z(uZ){};
 
-        Vector3(const Vector3 &v);
+        /* 
+        * @brief Constructor to create a 3D vector with zero vector components.
+         */
+        Vector3();
 
+        /*
+        * @brief 3D vector desctructor
+        */
         ~Vector3();
 
-        // Adding
+        /*!
+        * @brief Calculates the addition of two vectors.
+        * 
+        * @param v Vector to add.
+        * 
+        * @return Resultant of two vectors.
+        */
         void operator+=(const Vector3 &v)
         {
             x += v.x;
             y += v.y;
             z += v.z;
         };
+
+        /*!
+        * @brief Calculates the addition of two vectors.
+        * 
+        * @param v 3D vector to add.
+        * 
+        * @return Returns a third vector representing the addition of two vectors.
+        */
         Vector3 operator+(const Vector3 &v)
             const
         {
             return Vector3(x + v.x, y + v.y, z + v.z);
-        }   
+        }
 
-        // Subtracting
+        /*!
+        * @brief Calculates the subtraction of two vectors.
+        * 
+        * @param v Vector to subtract.
+        * 
+        * @return Resultant of two vectors.
+        */
         void operator-=(const Vector3 &v)
         {
             x -= v.x;
             y -= v.y;
             z -= v.z;
         };
+
+        /*!
+        * @brief Calculates the subtraction of two vectors.
+        * 
+        * @param v Vector to subtract.
+        * 
+        * @return Returns a third vector representing the subtraction of two vectors.
+        */
         Vector3 operator-(const Vector3 &v)
             const
         {
             return Vector3(x - v.x, y - v.y, z - v.z);
         }
 
-        /* void operator*=(const float v)
-        * Find the vector when multiplied by v
+        /*!
+        * @brief Calculates the multiplication of a vector by scalar.
+        * 
+        * @param v Scalar.
+        * 
+        * @return Product of multiplcation.
         */
         void operator*=(const float v)
         {
@@ -181,67 +337,125 @@ class Vector3
             y *= v;
             z *= v;
         }
+
+        /*!
+        * @brief Calculates the multiplication of a vector by scalar.
+        * 
+        * @param v Scalar.
+        * 
+        * @return Vector representing product.
+        */
         Vector3 operator*(const float v)
         {
             return Vector3(x * v, y * v, z * v);
         };
 
-        /* void operator/=(const float v)
-        * Find the vector when divided by v
-        */
+        /*!
+         *  @brief  Division of vector by scalar.
+         *
+         *  @param v Scalar
+         *
+         *  @return Quotient of division.
+         */
         void operator/=(const float v)
         {
             x /= v;
             y /= v;
             z /= v;
         }
+
+        /*!
+         *  @brief  Division of vector by scalar.
+         *
+         *  @param v Scalar
+         *
+         *  @return Quotient of division.
+         */
         Vector3 operator/(const float v)
         {
             return Vector3(x / v, y / v, z / v);
         };
 
-        /* void operator%=(const float v)
-        * Find the remaining number of a vector when divided by v
-        */
+        /*!
+         *  @brief  Modulus of vector by scalar.
+         *
+         *  @param v Scalar
+         *
+         *  @return Resultant of the modulo of vector by scalar.
+         */
         void operator%=(const float v)
         {
             x *= v;
             y *= v;
             z *= v;
         }
+
+        /*!
+         *  @brief  Modulus of vector by scalar.
+         *
+         *  @param v Scalar
+         *
+         *  @return Returns a third vector representing the modulo of vector by scalar.
+         */
         Vector3 operator%(const float v)
         {
             return Vector3((int)x % (int)v, (int)y % (int)v, (int)z % (int)v);
         };
 
-        /* void operator*(const float v)
-        * Find the multiplication of two vectors in a 3 dimensional plane
-        */
+        /*!
+         *  @brief  Calculate dot product.
+         *
+         *  @param v Vector
+         *
+         *  @return Dot product result.
+         */
         float operator*(const Vector3 &v)
             const
         {
             return (x * v.x + y * v.y + z * v.z);
         }
+
+        /*!
+         *  @brief  Calculate dot product.
+         *
+         *  @param v Vector
+         *
+         *  @return Dot product result.
+         */
         float dot(const Vector3 &v)
             const
         {
             return (x * v.x + y * v.y + z * v.z);
         };
 
-        /* Vector3 cross(const Vector3 &v) const
-        * Finds the cross vector
-        */
-        Vector3 cross(const Vector3 &v) const
-        {
+        /*!
+         *  @brief  Calculates the angle between vectors.
+         *
+         *  @param v Vector
+         *
+         *  @return Returns the angle between vectors in degrees.
+         */
+        float angle(const Vector3 &v);
 
-            return Vector3(y * v.z - z * v.y,
-                           z * v.x - x * v.z,
-                           x * v.y - y * v.x);
-        }
+        /*!
+         *  @brief  Calculate cross product.
+         *
+         *  @param v Vector
+         *
+         *  @return Cross product result.
+         */
         void operator%=(const Vector3 &v)
         {
             *this = cross(v);
         }
+
+        /*!
+         *  @brief  Calculate cross product.
+         *
+         *  @param v Vector
+         *
+         *  @return Cross product result.
+         */
         Vector3 operator%(const Vector3 &v) const
         {
             return Vector3(y * v.z - z * v.y,
@@ -249,11 +463,61 @@ class Vector3
                            x * v.y - y * v.x);
         }
 
-        /* float length*()
-        * Does the math to find the length of a vector
-        */
-        float length()
+        /*!
+         *  @brief  Calculate cross product.
+         *
+         *  @param v Vector
+         *
+         *  @return Cross product result.
+         */
+        Vector3 cross(const Vector3 &v) const
         {
-            return sqrt((x * x) + (y * y) + (z*z));
+
+            return Vector3(y * v.z - z * v.y,
+                           z * v.x - x * v.z,
+                           x * v.y - y * v.x);
         }
+
+        /*!
+         *  @brief  Conjugate the vector.
+         */
+        void Conjugate();
+        
+        /*!
+         *  @brief  Normalize the vector.
+         */
+        void Normalize();
+        
+        /*!
+         *  @brief  Calculate magnitude of vector.
+         *
+         *  @return Magnitude value.
+         */
+        float Magnitude();
+        
+        /*!
+         *  @brief  Calculate the magnitude square of vector.
+         *
+         *  @return Magnitude squared value.
+         */
+        float MagnitudeSquare();
+        
+        
+        /*!
+         *  @brief  Convert vector to a zero vector
+         */
+        void Zero();
+        
+        /*!
+         *  @brief  Calculate absolute value of vector
+         */
+        void Absolute();
+
+        /*!
+         *  @brief  Print vector components
+         */
+        void Show();
+        
+        //Negate all components
+        void negate();
 };
