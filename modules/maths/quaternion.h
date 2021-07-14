@@ -29,9 +29,10 @@
 #pragma once
 
 #include <iostream>
-#include "vector.h"
 
-class Quarternion
+class Vector3;
+
+class Quaternion
 {
     public: 
         //scalar
@@ -41,11 +42,65 @@ class Quarternion
         Vector3 v;
 
         //constructor
-        Quarternion();
+        Quaternion();
 
         //constructor
-        Quarternion(float uS, Vector3 &uV);
+        Quaternion(float uS, Vector3 &uV);
 
         //destructor
-        ~Quarternion();
+        ~Quaternion();
+
+        /*!
+        * @brief Addition
+        * 
+        * @param q quaternion
+        * 
+        * @return adds quaternions
+        */
+        void operator+=(const Quaternion &q);
+
+        /*!
+         *  @brief Addition
+         * 
+         *  @param q quaternion
+         *
+         *  @return Quaternion addition
+         */
+        Quaternion operator+(const Quaternion &q)const;
+
+        /*!
+        *  @brief Subtraction
+        * 
+        *  @param q quaternion
+        * 
+        *  @return subtracts quaternions
+        */
+        void operator-=(const Quaternion &q);
+
+        /*!
+         *  @brief Subtraction
+         * 
+         *  @param q quaternion
+         *
+         *  @return Quaternion subtraction
+         */
+        Quaternion operator-(const Quaternion &q) const;
+
+        /*!
+        *  @brief Quaternion Multiplication
+        * 
+        *  @param q quaternion
+        * 
+        *  @return Quaternion product
+        */
+        void operator*=(const Quaternion &q) const;
+
+        /*!
+        *  @brief Quaternion Multiplication
+        * 
+        *  @param q quaternion
+        * 
+        *  @return Quaternion product
+        */
+        Quaternion operator*(const Quaternion &q)const;
 };
