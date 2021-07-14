@@ -120,7 +120,7 @@ class Vector2
         * 
         * @return Vector representing product.
         */
-        Vector2 operator*(const float v);
+        Vector2 operator*(const float v)const;
 
 #pragma mark-division2D
         /*!
@@ -139,7 +139,7 @@ class Vector2
          *
          *  @return Quotient of division.
          */
-        Vector2 operator/(const float v);
+        Vector2 operator/(const float v)const;
 
 #pragma mark-modulus2D
         /*!
@@ -158,7 +158,7 @@ class Vector2
          *
          *  @return Returns a third vector representing the modulo of vector by scalar.
          */
-        Vector2 operator%(const float v);
+        Vector2 operator%(const float v)const;
 
 #pragma mark-dot product2D
         /*!
@@ -316,7 +316,7 @@ class Vector3
         * 
         * @return Vector representing product.
         */
-        Vector3 operator*(const float v);
+        Vector3 operator*(const float v)const;
 
 #pragma mark-division3D
         /*!
@@ -335,7 +335,7 @@ class Vector3
          *
          *  @return Quotient of division.
          */
-        Vector3 operator/(const float v);
+        Vector3 operator/(const float v)const;
 
 #pragma mark-modulus3D
         /*!

@@ -52,6 +52,7 @@ void Vector2::operator*=(const float v)
 }
 
 Vector2 Vector2::operator*(const float v)
+const
 {
     return Vector2(x * v, y * v);
 }
@@ -65,6 +66,7 @@ void Vector2::operator/=(const float v)
 }
 
 Vector2 Vector2::operator/(const float v)
+const
 {
     return Vector2(x / v, y / v);
 }
@@ -78,6 +80,7 @@ void Vector2::operator%=(const float v)
 }
 
 Vector2 Vector2::operator%(const float v)
+const
 {
     return Vector2((int)x % (int)v, (int)y % (int)y);
 }
@@ -208,6 +211,7 @@ void Vector3::operator*=(const float v)
 }
 
 Vector3 Vector3::operator*(const float v)
+const
 {
     return Vector3(x * v, y * v, z * v);
 }
@@ -222,6 +226,7 @@ void Vector3::operator/=(const float v)
 }
 
 Vector3 Vector3::operator/(const float v)
+const
 {
     return Vector3(x / v, y / v, z / v);
 }

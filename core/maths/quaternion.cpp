@@ -33,10 +33,71 @@ void Quaternion::operator-=(const Quaternion &q)
 }
 
 Quaternion Quaternion::operator-(const Quaternion &q)
-    const
+const
 {
     float scalar = s - q.s;
     Vector3 imaginary = v - q.v;
+
+    return Quaternion(scalar, imaginary);
+}
+
+void Quaternion::operator*=(const Quaternion &q)
+{
+    (*this) = multiply(q);
+}
+
+Quaternion Quaternion::operator*(const Quaternion &q) 
+const
+{
+    float scalar = s * q.s - v.dot(q.v);
+    Vector3 imaginary = v.cross(q.v) + v * q.s + q.v * s;
+
+    return Quaternion(scalar, imaginary);
+};
+
+Quaternion Quaternion::multiply(const Quaternion &q)
+const
+{
+    float scalar = s * q.s - v.dot(q.v);
+    Vector3 imaginary = v.cross(q.v) + v * q.s + q.v * s;
+
+    return Quaternion(scalar, imaginary);
+};
+
+void Quaternion::operator/=(const Quaternion &q)
+{
+    (*this) = divide(q);
+}
+
+Quaternion Quaternion::operator/(const Quaternion &q)
+    const
+{
+    float scalar = s * q.s + v.dot(q.v);
+    Vector3 imaginary = v * q.s - q.v * s - v.cross(q.v);
+
+    return Quaternion(scalar, imaginary);
+};
+
+Quaternion Quaternion::divide(const Quaternion &q)
+    const
+{
+    float scalar = s * q.s + v.dot(q.v);
+    Vector3 imaginary = v * q.s - q.v * s - v.cross(q.v);
+
+    return Quaternion(scalar, imaginary);
+};
+
+void Quaternion::operator*=(const float value)
+{
+    s *= value;
+    v *= value;
+}
+
+Quaternion Quaternion::operator*(const float value)
+const
+{
+    float scalar = s*value;
+    Vector3 imaginary = v * value;
 
     return Quaternion(scalar, imaginary);
 }
