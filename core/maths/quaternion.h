@@ -1,5 +1,5 @@
 /*************************************************************************/
-/*  quaternion.h                                                             */
+/*  quaternion.h                                                         */
 /*************************************************************************/
 /*                       This file is part of:                           */
 /*                           ZeroThree Engine                            */
@@ -93,7 +93,7 @@ class Quaternion
         * 
         *  @return Quaternion product
         */
-        void operator*=(const Quaternion &q) const;
+        void operator*=(const Quaternion &q);
 
         /*!
         *  @brief Quaternion Multiplication
@@ -103,4 +103,58 @@ class Quaternion
         *  @return Quaternion product
         */
         Quaternion operator*(const Quaternion &q)const;
+
+        /*!
+        *  @brief Quaternion multiplication
+        *
+        *  @param q quaternion
+        *
+        *  @return quaternion product
+        */
+        Quaternion multiply(const Quaternion &q) const;
+
+        /*!
+        *  @brief Quaternion Division
+        * 
+        *  @param q quaternion
+        * 
+        *  @return Quaternion product
+        */
+        void operator/=(const Quaternion &q);
+
+        /*!
+        *  @brief Quaternion Division
+        * 
+        *  @param q quaternion
+        * 
+        *  @return Quaternion product
+        */
+        Quaternion operator/(const Quaternion &q) const;
+
+        /*!
+        *  @brief Quaternion Division
+        *
+        *  @param q quaternion
+        *
+        *  @return quaternion product
+        */
+        Quaternion divide(const Quaternion &q) const;
+
+        /*!
+        *  @brief Quaternion Multiplication (scalar)
+        * 
+        *  @param q quaternion
+        * 
+        *  @return Quaternion product
+        */
+        void operator*=(const float value);
+
+        /*!
+        *  @brief Quaternion Multiplication (scalar)
+        * 
+        *  @param q quaternion
+        * 
+        *  @return Quaternion product
+        */
+        Quaternion operator*(const float value) const;
 };
