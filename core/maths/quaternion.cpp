@@ -95,9 +95,24 @@ void Quaternion::operator*=(const float value)
 
 Quaternion Quaternion::operator*(const float value)
 const
-{
-    float scalar = s*value;
+{  
+    float scalar = s * value;
     Vector3 imaginary = v * value;
+
+    return Quaternion(scalar, imaginary);
+}
+
+void Quaternion::operator/=(const float value)
+{
+    s /= value;
+    v /= value;
+}
+
+Quaternion Quaternion::operator/(const float value)
+const
+{
+    float scalar = s / value;
+    Vector3 imaginary = v / value;
 
     return Quaternion(scalar, imaginary);
 }
