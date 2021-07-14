@@ -157,4 +157,22 @@ class Quaternion
         *  @return Quaternion product
         */
         Quaternion operator*(const float value) const;
+
+        /*!
+        *  @brief Quaternion Division (scalar)
+        * 
+        *  @param q quaternion
+        * 
+        *  @return Quaternion product
+        */
+        void operator/=(const float value);
+
+        /*!
+        *  @brief Quaternion Division (scalar)
+        * 
+        *  @param q quaternion
+        * 
+        *  @return Quaternion product
+        */
+        Quaternion operator/(const float value) const;
 };
