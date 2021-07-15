@@ -178,9 +178,9 @@ class Quaternion
         Quaternion operator/(const float value) const;
 
         /*!
-        *  @brief Normalisation of the quaternion
+        *  @brief Norm of the quaternion
         * 
-        *  @return Returns results of the Normalisation of a quaternion
+        *  @return Returns results of the Norm of a quaternion
         */
         float Norm();
 };
