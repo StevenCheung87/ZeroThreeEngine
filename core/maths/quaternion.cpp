@@ -135,3 +135,11 @@ float Quaternion::Normalisation()
         v *= NormValue;
     }
 }
+
+void Quaternion::ConvertToUnitNormQuaternion()
+{
+    float Angle = (s*M_PI)/180;
+    v.Normalize();
+    s = cosf(Angle * 0.5);
+    v = v * sinf(Angle * 0.5);
+}
