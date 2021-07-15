@@ -29,6 +29,7 @@
 #pragma once
 
 #include <iostream>
+#include <math.h>
 
 class Vector3;
 
@@ -175,4 +176,11 @@ class Quaternion
         *  @return Quaternion product
         */
         Quaternion operator/(const float value) const;
+
+        /*!
+        *  @brief Normalisation of the quaternion
+        * 
+        *  @return Returns results of the Normalisation of a quaternion
+        */
+        float Norm();
 };

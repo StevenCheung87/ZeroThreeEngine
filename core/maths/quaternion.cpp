@@ -116,3 +116,11 @@ const
 
     return Quaternion(scalar, imaginary);
 }
+
+float Quaternion::Norm()
+{
+    float scalar = s * s;
+    float imaginary = v * v;
+
+    return sqrt(scalar+imaginary);
+}
