@@ -124,3 +124,14 @@ float Quaternion::Norm()
 
     return sqrt(scalar+imaginary);
 }
+
+float Quaternion::Normalisation()
+{
+    if (Norm() != 0)
+    {
+        float NormValue = 1/Norm();
+
+        s *= NormValue;
+        v *= NormValue;
+    }
+}

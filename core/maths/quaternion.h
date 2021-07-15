@@ -183,4 +183,11 @@ class Quaternion
         *  @return Returns results of the Norm of a quaternion
         */
         float Norm();
+
+        /*!
+        *  @brief Normalisation of the quaternion
+        * 
+        *  @return Returns results of the Normalisation of a quaternion
+        */
+        float Normalisation();
 };
