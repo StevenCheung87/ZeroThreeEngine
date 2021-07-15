@@ -190,4 +190,9 @@ class Quaternion
         *  @return Returns results of the Normalisation of a quaternion
         */
         float Normalisation();
+
+        /*!
+        *  @brief Special Unit-Norm form of quaternion
+        */
+        void ConvertToUnitNormQuaternion();
 };
