@@ -195,4 +195,20 @@ class Quaternion
         *  @brief Special Unit-Norm form of quaternion
         */
         void ConvertToUnitNormQuaternion();
+
+        /*!
+        *  @brief Conjugate
+        *
+        *  @return Conjugate of a quaternion
+        */
+        Quaternion Conjugate();
+
+        /*!
+        *  @brief Inverse
+        *
+        *  @return Inverse of a quaternion
+        */
+        Quaternion Inverse();
+
+        void Inverse(Quaternion &q);
 };
