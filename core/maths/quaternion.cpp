@@ -143,3 +143,32 @@ void Quaternion::ConvertToUnitNormQuaternion()
     s = cosf(Angle * 0.5);
     v = v * sinf(Angle * 0.5);
 }
+
+Quaternion Quaternion::Conjugate()
+{
+    float scalar = s;
+    Vector3 imaginary = v * (-1);
+
+    return Quaternion(scalar, imaginary);
+}
+
+Quaternion Quaternion::Inverse()
+{
+    float AbsoluteValue = Norm();
+    AbsoluteValue *= AbsoluteValue;
+    AbsoluteValue = 1 / (AbsoluteValue);
+
+    Quaternion ConjugateValue = Conjugate();
+
+    float scalar = ConjugateValue.s * AbsoluteValue;
+    Vector3 imaginary = ConjugateValue.v * AbsoluteValue;
+    
+    return Quaternion(scalar, imaginary);
+}
+
+void Quaternion::Inverse(Quaternion &q)
+{
+    Quaternion dummy = q.Inverse();
+
+    q = dummy;
+}
