@@ -135,3 +135,25 @@ float Quaternion::Normalisation()
         v *= NormValue;
     }
 }
+
+Quaternion Quaternion::Conjugate()
+{
+    float scalar = s;
+    Vector3 imaginary = v * (-1);
+
+    return Quaternion(scalar, imaginary);
+}
+
+Quaternion Quaternion::Inverse()
+{
+    float AbsoluteValue = Norm();
+    AbsoluteValue *= AbsoluteValue;
+    AbsoluteValue = 1 / (AbsoluteValue);
+
+    Quaternion ConjugateValue = Conjugate();
+
+    float scalar = ConjugateValue.s * AbsoluteValue;
+    Vector3 imaginary = ConjugateValue.v * AbsoluteValue;
+    
+    return Quaternion(scalar, imaginary);
+}

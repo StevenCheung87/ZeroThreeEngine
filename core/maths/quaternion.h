@@ -190,4 +190,18 @@ class Quaternion
         *  @return Returns results of the Normalisation of a quaternion
         */
         float Normalisation();
+
+        /*!
+        *  @brief Conjugate
+        * 
+        *  @return Conjugate of a quaternion
+        */
+        Quaternion Conjugate();
+
+        /*!
+        *  @brief Inverse
+        *
+        *  @return Inverse of a quaternion
+        */
+        Quaternion Inverse();
 };
