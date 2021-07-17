@@ -1,4 +1,5 @@
 #include "vector.h"
+#include "quaternion.h"
 
 /*************************************************************************/
 /*  class Vector2                                                        */
@@ -335,4 +336,27 @@ void Vector3::negate()
     x = -1 * x;
     y = -1 * y;
     z = -1 * z;
+}
+
+#pragma mark-rotating vector by quaternion
+Vector3 Vector3::RotateVectorAboutAngleAndAxis(float uAngle, Vector3 &uAxis)
+{
+    // Convert this our vector into a pure quaternion
+    Quaternion p(0, (*this));
+
+    // NOrmalize the axis
+    uAxis.Normalize();
+
+    Quaternion q(uAngle, uAxis);
+
+    // Convert the quaternion to unit norm quaternion
+    q.ConvertToUnitNormQuaternion();
+
+    // Gets the inverse of the real quaternion
+    Quaternion qInverse = q.Inverse();
+
+    // Calculate the rotated vector
+    Quaternion RotatedVector = q * p * qInverse;
+
+    return RotatedVector.v;
 }

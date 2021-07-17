@@ -442,4 +442,15 @@ class Vector3
         
         //Negate all components
         void negate();
+
+#pragma mark-rotating vector by quaternion
+        /*!
+        *  @brief Rotate a vector about an angle using quaternions
+        *
+        *  @param uAngle angle to rotate
+        *  @param uAxis  axis to rotate about
+        *
+        *  @return Vector rotation
+        */
+        Vector3 RotateVectorAboutAngleAndAxis(float uAngle, Vector3 &uAxis);
 };
