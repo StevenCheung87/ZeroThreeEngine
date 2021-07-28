@@ -17,6 +17,20 @@ Vector2::Vector2() : x(0.0), y(0.0){};
 Vector2::~Vector2(){}
 
 
+#pragma mark-copy constructor2D
+Vector2::Vector2(const Vector2 &v) : x(v.x), y(v.y)
+{
+}
+
+Vector2& Vector2::operator=(const Vector2 &v)
+{
+    x = v.x;
+    y = v.y;
+
+    return *this;
+}
+
+
 #pragma mark-add2D
 void Vector2::operator+=(const Vector2 &v)
 {
@@ -171,6 +185,21 @@ Vector3::Vector3(){}
 
 #pragma mark-destructor3D
 Vector3::~Vector3(){};
+
+
+#pragma mark -copy constructor2D
+Vector3::Vector3(const Vector3 &v) : x(v.x), y(v.y),z(v.z)
+{
+}
+
+Vector3 &Vector3::operator=(const Vector3 &v)
+{
+    x = v.x;
+    y = v.y;
+    z = v.z;
+
+    return *this;
+}
 
 
 #pragma mark-add3D
