@@ -44,26 +44,46 @@ class Vector2
         float y;
 
 #pragma mark-constructors2D
-        /*
+        /*!
         * @brief Constructor to create a 3D vector with x, y, and z components
         * 
         * @param uX x component
         * @param uY y component
         * 
-        * @ return Creates a vector with the given x, y and z components
+        * @return Creates a vector with the given x, y and z components
         */
         Vector2(float uX, float uY);
 
-        /*
+        /*!
         * @brief Constructor to create a 2D vector with zero vector components.
         */
         Vector2();
 
 #pragma mark-destructor2D
-        /*
+        /*!
         * @brief 2D vector desctructor
         */
         ~Vector2();
+
+#pragma mark-copy constructor2D
+        /*!
+        * @brief Copy constuctor for 2D vector
+        * 
+        * @param a 2D vector to copy
+        * 
+        * @return Copies the values of the vector
+        */
+        Vector2(const Vector2 &v);
+
+        /*!
+         *  @brief  Copy constructor for 2D vector
+         *
+         *  @param a 2D vector to copy
+         *
+         *  @return Copies the values of the vector
+         *
+         */
+        Vector2 &operator=(const Vector2 &v);
 
 #pragma mark-add2D
         /*!
@@ -260,6 +280,26 @@ class Vector3
         * @brief 3D vector desctructor
         */
         ~Vector3();
+
+#pragma mark-copy constructor3D
+        /*!
+        * @brief Copy constuctor for 3D vector
+        * 
+        * @param a 3D vector to copy
+        * 
+        * @return Copies the values of the vector
+        */
+        Vector3(const Vector3 &v);
+
+        /*!
+         *  @brief  Copy constructor for 3D vector
+         *
+         *  @param a 3D vector to copy
+         *
+         *  @return Copies the values of the vector
+         *
+         */
+        Vector3 &operator=(const Vector3 &v);
 
 #pragma mark-add3D
         /*!
