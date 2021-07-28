@@ -11,6 +11,20 @@ Quaternion::Quaternion(float uS, Vector3 &uV)
 
 Quaternion::~Quaternion(){}
 
+Quaternion::Quaternion(const Quaternion &value)
+{
+    s = value.s;
+    v = value.v;
+}
+
+inline Quaternion & Quaternion::operator=(const Quaternion &value)
+{
+    s = value.s;
+    v = value.v;
+
+    return *this;
+}
+
 void Quaternion::operator+=(const Quaternion &q)
 {
     s += q.s;

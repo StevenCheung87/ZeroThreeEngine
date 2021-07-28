@@ -52,6 +52,16 @@ class Quaternion
         ~Quaternion();
 
         /*!
+         *  @brief Copy Constructor
+         */
+        Quaternion(const Quaternion &value);
+
+        /*!
+         *  @brief Copy Constructor
+         */
+        inline Quaternion &operator=(const Quaternion &value);
+
+        /*!
         * @brief Addition
         * 
         * @param q quaternion
