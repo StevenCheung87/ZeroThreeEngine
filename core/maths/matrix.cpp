@@ -42,6 +42,18 @@ Matrix3::Matrix3(float m0, float m3, float m6, float m1, float m4, float m7, flo
 Matrix3::~Matrix3(){}
 
 
+#pragma mark-copy constructors
+Matrix3& Matrix3::operator=(const Matrix3 &value)
+{
+    for (int i = 0; i < 9; i++)
+    {
+        MatrixData[i] = value.MatrixData[i];
+    }
+
+    return *this;
+}
+
+
 #pragma mark-debug
 void Matrix3::Show()
 {
