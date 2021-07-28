@@ -17,7 +17,7 @@ Quaternion::Quaternion(const Quaternion &value)
     v = value.v;
 }
 
-inline Quaternion & Quaternion::operator=(const Quaternion &value)
+inline Quaternion &Quaternion::operator=(const Quaternion &value)
 {
     s = value.s;
     v = value.v;

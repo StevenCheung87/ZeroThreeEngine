@@ -43,7 +43,7 @@ Matrix3::~Matrix3(){}
 
 
 #pragma mark-copy constructors
-Matrix3& Matrix3::operator=(const Matrix3 &value)
+Matrix3 &Matrix3::operator=(const Matrix3 &value)
 {
     for (int i = 0; i < 9; i++)
     {
