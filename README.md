@@ -45,3 +45,10 @@ Incomplete
 Incomplete
 
 </details>
+
+---
+
+**If you have any queries about this game engine, please do not hesitate to contact me.**
+Contact Information ->
+Email: stevencheungcode@outlook.com
+Twitter: @StevenC88221733
