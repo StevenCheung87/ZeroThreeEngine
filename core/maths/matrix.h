@@ -54,6 +54,16 @@ class Matrix3
          */
         ~Matrix3(){};
 
+#pragma mark-copy constructors
+        /*!
+         *  @brief Copy Constructor
+         * 
+         *  @param value matrix to copy
+         * 
+         *  @return Copies the value of the matrix
+         */
+        Matrix3 &operator=(const Matrix3 &value);
+
 #pragma mark-debug
         /* 
         * Debug, show the matrix in the console log
