@@ -9,9 +9,9 @@ Matrix3::Matrix3()
     //    1    4    7
     //    2    5    8
 
-    for (int i=0; i<9;i++)
+    for (int i = 0; i < 9; i++)
     {
-        MatrixData[i]=0.0f;
+        MatrixData[i] = 0.0f;
     }
 
     MatrixData[0] = MatrixData[4] = MatrixData[8] = 1.0f;
@@ -39,11 +39,11 @@ Matrix3::Matrix3(float m0, float m3, float m6, float m1, float m4, float m7, flo
 
 
 #pragma mark-destructors
-Matrix3::~Matrix3(){}
+Matrix3::~Matrix3() {}
 
 
 #pragma mark-copy constructors
-Matrix3& Matrix3::operator=(const Matrix3 &value)
+Matrix3& Matrix3::operator=(const Matrix3& value)
 {
     for (int i = 0; i < 9; i++)
     {
@@ -63,13 +63,13 @@ void Matrix3::Show()
     //    2    5    8
 
     std::cout << "[" << MatrixData[0] << "," << MatrixData[3] << "," << MatrixData[6] << std::endl
-                << MatrixData[1] << "," << MatrixData[4] << "," << MatrixData[7] << std::endl
-                << MatrixData[2] << "," << MatrixData[5] << "," << MatrixData[8] << "]" << std::endl;
+        << MatrixData[1] << "," << MatrixData[4] << "," << MatrixData[7] << std::endl
+        << MatrixData[2] << "," << MatrixData[5] << "," << MatrixData[8] << "]" << std::endl;
 }
 
 
 #pragma mark-matrix addition
-Matrix3 Matrix3::operator+(const Matrix3 &m)
+Matrix3 Matrix3::operator+(const Matrix3& m)
 {
     Matrix3 n;
 
@@ -93,7 +93,7 @@ Matrix3 Matrix3::operator+(const Matrix3 &m)
     return n;
 }
 
-void Matrix3::operator+=(const Matrix3 &m)
+void Matrix3::operator+=(const Matrix3& m)
 {
     // 3x3 matrix - column major. X vector is 0, 1, 2, etc. (openGL prefer way)
     //    0    3    6
@@ -115,7 +115,7 @@ void Matrix3::operator+=(const Matrix3 &m)
 
 
 #pragma mark-matrix subtraction
-Matrix3 Matrix3::operator-(const Matrix3 &m)
+Matrix3 Matrix3::operator-(const Matrix3& m)
 {
     Matrix3 n;
 
@@ -139,7 +139,7 @@ Matrix3 Matrix3::operator-(const Matrix3 &m)
     return n;
 }
 
-void Matrix3::operator-=(const Matrix3 &m)
+void Matrix3::operator-=(const Matrix3& m)
 {
     // 3x3 matrix - column major. X vector is 0, 1, 2, etc. (openGL prefer way)
     //    0    3    6
@@ -251,8 +251,8 @@ void Matrix3::operator/=(const float s)
 
 
 #pragma mark-vector transfomation
-Vector3 Matrix3::operator*(const Vector3 &v)
-    const
+Vector3 Matrix3::operator*(const Vector3& v)
+const
 {
     // 3x3 matrix - column major. X vector is 0, 1, 2, etc. (openGL prefer way)
     //    0    3    6
@@ -260,19 +260,19 @@ Vector3 Matrix3::operator*(const Vector3 &v)
     //    2    5    8
 
     return Vector3(MatrixData[0] * v.x + MatrixData[3] * v.y + MatrixData[6] * v.z,
-                   MatrixData[1] * v.x + MatrixData[4] * v.y + MatrixData[7] * v.z,
-                   MatrixData[2] * v.x + MatrixData[5] * v.y + MatrixData[8] * v.z);
+        MatrixData[1] * v.x + MatrixData[4] * v.y + MatrixData[7] * v.z,
+        MatrixData[2] * v.x + MatrixData[5] * v.y + MatrixData[8] * v.z);
 }
 
-Vector3 Matrix3::TransformVectorByMatrix(const Vector3 &v)
-    const
+Vector3 Matrix3::TransformVectorByMatrix(const Vector3& v)
+const
 {
     return (*this) * v;
 }
 
 
 #pragma mark-matrix multiplication
-Matrix3 Matrix3::operator*(const Matrix3 &m)
+Matrix3 Matrix3::operator*(const Matrix3& m)
 {
     // 3x3 matrix - column major. X vector is 0, 1, 2, etc. (openGL prefer way)
     //    0    3    6
@@ -280,19 +280,19 @@ Matrix3 Matrix3::operator*(const Matrix3 &m)
     //    2    5    8
 
     return Matrix3(MatrixData[0] * m.MatrixData[0] + MatrixData[3] * m.MatrixData[1] + MatrixData[6] * m.MatrixData[2],
-                   MatrixData[0] * m.MatrixData[3] + MatrixData[3] * m.MatrixData[4] + MatrixData[6] * m.MatrixData[5],
-                   MatrixData[0] * m.MatrixData[6] + MatrixData[3] * m.MatrixData[7] + MatrixData[6] * m.MatrixData[8],
+        MatrixData[0] * m.MatrixData[3] + MatrixData[3] * m.MatrixData[4] + MatrixData[6] * m.MatrixData[5],
+        MatrixData[0] * m.MatrixData[6] + MatrixData[3] * m.MatrixData[7] + MatrixData[6] * m.MatrixData[8],
 
-                   MatrixData[1] * m.MatrixData[0] + MatrixData[4] * m.MatrixData[1] + MatrixData[7] * m.MatrixData[2],
-                   MatrixData[1] * m.MatrixData[3] + MatrixData[4] * m.MatrixData[4] + MatrixData[7] * m.MatrixData[5],
-                   MatrixData[1] * m.MatrixData[6] + MatrixData[4] * m.MatrixData[7] + MatrixData[7] * m.MatrixData[8],
+        MatrixData[1] * m.MatrixData[0] + MatrixData[4] * m.MatrixData[1] + MatrixData[7] * m.MatrixData[2],
+        MatrixData[1] * m.MatrixData[3] + MatrixData[4] * m.MatrixData[4] + MatrixData[7] * m.MatrixData[5],
+        MatrixData[1] * m.MatrixData[6] + MatrixData[4] * m.MatrixData[7] + MatrixData[7] * m.MatrixData[8],
 
-                   MatrixData[2] * m.MatrixData[0] + MatrixData[5] * m.MatrixData[1] + MatrixData[8] * m.MatrixData[2],
-                   MatrixData[2] * m.MatrixData[3] + MatrixData[5] * m.MatrixData[4] + MatrixData[8] * m.MatrixData[5],
-                   MatrixData[2] * m.MatrixData[6] + MatrixData[5] * m.MatrixData[7] + MatrixData[8] * m.MatrixData[8]);
+        MatrixData[2] * m.MatrixData[0] + MatrixData[5] * m.MatrixData[1] + MatrixData[8] * m.MatrixData[2],
+        MatrixData[2] * m.MatrixData[3] + MatrixData[5] * m.MatrixData[4] + MatrixData[8] * m.MatrixData[5],
+        MatrixData[2] * m.MatrixData[6] + MatrixData[5] * m.MatrixData[7] + MatrixData[8] * m.MatrixData[8]);
 }
 
-void Matrix3::operator*=(const Matrix3 &m)
+void Matrix3::operator*=(const Matrix3& m)
 {
     // 3x3 matrix - column major. X vector is 0, 1, 2, etc. (openGL prefer way)
     //    0    3    6
@@ -342,7 +342,7 @@ void Matrix3::SetMatrixAsIdentityMatrix()
 
 
 #pragma mark-matrix inverse
-void Matrix3::SetMatrixAsInverseOfGivenMatrix(const Matrix3 &m)
+void Matrix3::SetMatrixAsInverseOfGivenMatrix(const Matrix3& m)
 {
     // 3x3 matrix - column major. X vector is 0, 1, 2, etc. (openGL prefer way)
     //    0    3    6
@@ -396,7 +396,7 @@ void Matrix3::SetMatrixAsInverseOfGivenMatrix(const Matrix3 &m)
 }
 
 Matrix3 Matrix3::GetInverseOfMatrix()
-    const
+const
 {
     Matrix3 result;
     result.SetMatrixAsInverseOfGivenMatrix(*this);
@@ -410,7 +410,7 @@ void Matrix3::InverseMatrix()
 
 
 #pragma mark-matrix transpose
-void Matrix3::SetMatrixAsTransposeOfGivenMatrix(const Matrix3 &m)
+void Matrix3::SetMatrixAsTransposeOfGivenMatrix(const Matrix3& m)
 {
     //3x3 Matrix
     //    0    3    6
@@ -434,7 +434,7 @@ void Matrix3::SetMatrixAsTransposeOfGivenMatrix(const Matrix3 &m)
 }
 
 Matrix3 Matrix3::GetTransposedMatrix()
-    const
+const
 {
     Matrix3 result;
     result.SetMatrixAsTransposeOfGivenMatrix(*this);

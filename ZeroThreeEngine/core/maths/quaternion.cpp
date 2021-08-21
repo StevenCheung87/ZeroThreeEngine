@@ -2,22 +2,22 @@
 #include "vector.h"
 
 
-Quaternion::Quaternion(){}
+Quaternion::Quaternion() {}
 
-Quaternion::Quaternion(float uS, Vector3 &uV)
-    : s(uS), 
+Quaternion::Quaternion(float uS, Vector3& uV)
+    : s(uS),
     v(uV)
 {}
 
-Quaternion::~Quaternion(){}
+Quaternion::~Quaternion() {}
 
-Quaternion::Quaternion(const Quaternion &value)
+Quaternion::Quaternion(const Quaternion& value)
 {
     s = value.s;
     v = value.v;
 }
 
-inline Quaternion & Quaternion::operator=(const Quaternion &value)
+inline Quaternion& Quaternion::operator=(const Quaternion& value)
 {
     s = value.s;
     v = value.v;
@@ -25,13 +25,13 @@ inline Quaternion & Quaternion::operator=(const Quaternion &value)
     return *this;
 }
 
-void Quaternion::operator+=(const Quaternion &q)
+void Quaternion::operator+=(const Quaternion& q)
 {
     s += q.s;
     v += q.v;
 }
 
-Quaternion Quaternion::operator+(const Quaternion &q)
+Quaternion Quaternion::operator+(const Quaternion& q)
 const
 {
     float scalar = s + q.s;
@@ -40,13 +40,13 @@ const
     return Quaternion(scalar, imaginary);
 }
 
-void Quaternion::operator-=(const Quaternion &q)
+void Quaternion::operator-=(const Quaternion& q)
 {
     s -= q.s;
     v -= q.v;
 }
 
-Quaternion Quaternion::operator-(const Quaternion &q)
+Quaternion Quaternion::operator-(const Quaternion& q)
 const
 {
     float scalar = s - q.s;
@@ -55,12 +55,12 @@ const
     return Quaternion(scalar, imaginary);
 }
 
-void Quaternion::operator*=(const Quaternion &q)
+void Quaternion::operator*=(const Quaternion& q)
 {
     (*this) = multiply(q);
 }
 
-Quaternion Quaternion::operator*(const Quaternion &q) 
+Quaternion Quaternion::operator*(const Quaternion& q)
 const
 {
     float scalar = s * q.s - v.dot(q.v);
@@ -69,7 +69,7 @@ const
     return Quaternion(scalar, imaginary);
 };
 
-Quaternion Quaternion::multiply(const Quaternion &q)
+Quaternion Quaternion::multiply(const Quaternion& q)
 const
 {
     float scalar = s * q.s - v.dot(q.v);
@@ -78,13 +78,13 @@ const
     return Quaternion(scalar, imaginary);
 };
 
-void Quaternion::operator/=(const Quaternion &q)
+void Quaternion::operator/=(const Quaternion& q)
 {
     (*this) = divide(q);
 }
 
-Quaternion Quaternion::operator/(const Quaternion &q)
-    const
+Quaternion Quaternion::operator/(const Quaternion& q)
+const
 {
     float scalar = s * q.s + v.dot(q.v);
     Vector3 imaginary = v * q.s - q.v * s - v.cross(q.v);
@@ -92,8 +92,8 @@ Quaternion Quaternion::operator/(const Quaternion &q)
     return Quaternion(scalar, imaginary);
 };
 
-Quaternion Quaternion::divide(const Quaternion &q)
-    const
+Quaternion Quaternion::divide(const Quaternion& q)
+const
 {
     float scalar = s * q.s + v.dot(q.v);
     Vector3 imaginary = v * q.s - q.v * s - v.cross(q.v);
@@ -109,7 +109,7 @@ void Quaternion::operator*=(const float value)
 
 Quaternion Quaternion::operator*(const float value)
 const
-{  
+{
     float scalar = s * value;
     Vector3 imaginary = v * value;
 
@@ -136,14 +136,14 @@ float Quaternion::Norm()
     float scalar = s * s;
     float imaginary = v * v;
 
-    return sqrt(scalar+imaginary);
+    return sqrt(scalar + imaginary);
 }
 
 float Quaternion::Normalisation()
 {
     if (Norm() != 0)
     {
-        float NormValue = 1/Norm();
+        float NormValue = 1 / Norm();
 
         s *= NormValue;
         v *= NormValue;
@@ -152,7 +152,7 @@ float Quaternion::Normalisation()
 
 void Quaternion::ConvertToUnitNormQuaternion()
 {
-    float Angle = (s*M_PI)/180;
+    float Angle = (s * M_PI) / 180;
     v.Normalize();
     s = cosf(Angle * 0.5);
     v = v * sinf(Angle * 0.5);
@@ -176,11 +176,11 @@ Quaternion Quaternion::Inverse()
 
     float scalar = ConjugateValue.s * AbsoluteValue;
     Vector3 imaginary = ConjugateValue.v * AbsoluteValue;
-    
+
     return Quaternion(scalar, imaginary);
 }
 
-void Quaternion::Inverse(Quaternion &q)
+void Quaternion::Inverse(Quaternion& q)
 {
     Quaternion dummy = q.Inverse();
 

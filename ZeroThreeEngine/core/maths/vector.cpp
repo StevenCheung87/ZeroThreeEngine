@@ -6,23 +6,23 @@
 /*************************************************************************/
 #pragma mark-constructors2D
 Vector2::Vector2(float uX, float uY)
-        :   x(uX),
-            y(uY)
-            {}
+    : x(uX),
+    y(uY)
+{}
 
-Vector2::Vector2() : x(0.0), y(0.0){};
+Vector2::Vector2() : x(0.0), y(0.0) {};
 
 
 #pragma mark-destructor2D
-Vector2::~Vector2(){}
+Vector2::~Vector2() {}
 
 
 #pragma mark-copy constructor2D
-Vector2::Vector2(const Vector2 &v) : x(v.x), y(v.y)
+Vector2::Vector2(const Vector2& v) : x(v.x), y(v.y)
 {
 }
 
-Vector2& Vector2::operator=(const Vector2 &v)
+Vector2& Vector2::operator=(const Vector2& v)
 {
     x = v.x;
     y = v.y;
@@ -32,28 +32,28 @@ Vector2& Vector2::operator=(const Vector2 &v)
 
 
 #pragma mark-add2D
-void Vector2::operator+=(const Vector2 &v)
+void Vector2::operator+=(const Vector2& v)
 {
     x += v.x;
     y += v.y;
 }
 
-Vector2 Vector2::operator+(const Vector2 &v)
-    const
+Vector2 Vector2::operator+(const Vector2& v)
+const
 {
     return Vector2(x + v.x, y + v.y);
 }
 
 
 #pragma mark-subraction2D
-void Vector2::operator-=(const Vector2 &v)
+void Vector2::operator-=(const Vector2& v)
 {
     x -= v.x;
     y -= v.y;
 }
 
-Vector2 Vector2::operator-(const Vector2 &v)
-    const
+Vector2 Vector2::operator-(const Vector2& v)
+const
 {
     return Vector2(x - v.x, y - v.y);
 }
@@ -102,14 +102,14 @@ const
 
 
 #pragma mark-dot product2D
-float Vector2::operator*(const Vector2 &v)
-    const
+float Vector2::operator*(const Vector2& v)
+const
 {
     return (x * v.x + y * v.y);
 }
 
-float Vector2::dot(const Vector2 &v)
-    const
+float Vector2::dot(const Vector2& v)
+const
 {
     return (x * v.x + y * v.y);
 }
@@ -118,7 +118,7 @@ float Vector2::dot(const Vector2 &v)
 #pragma mark-length2D
 float Vector2::Length()
 {
-    return sqrt((x*x)+(y*y));
+    return sqrt((x * x) + (y * y));
 }
 
 #pragma mark-conjugate2D
@@ -176,23 +176,23 @@ void Vector2::negate()
 /*************************************************************************/
 #pragma mark-constructors3D
 Vector3::Vector3(float uX, float uY, float uZ)
-    :   x(uX),
-        y(uY),
-        z(uZ){}
+    : x(uX),
+    y(uY),
+    z(uZ) {}
 
-Vector3::Vector3(){}
+Vector3::Vector3() {}
 
 
 #pragma mark-destructor3D
-Vector3::~Vector3(){};
+Vector3::~Vector3() {};
 
 
 #pragma mark -copy constructor2D
-Vector3::Vector3(const Vector3 &v) : x(v.x), y(v.y),z(v.z)
+Vector3::Vector3(const Vector3& v) : x(v.x), y(v.y), z(v.z)
 {
 }
 
-Vector3 &Vector3::operator=(const Vector3 &v)
+Vector3& Vector3::operator=(const Vector3& v)
 {
     x = v.x;
     y = v.y;
@@ -203,30 +203,30 @@ Vector3 &Vector3::operator=(const Vector3 &v)
 
 
 #pragma mark-add3D
-void Vector3::operator+=(const Vector3 &v)
+void Vector3::operator+=(const Vector3& v)
 {
     x += v.x;
     y += v.y;
     z += v.z;
 }
 
-Vector3 Vector3::operator+(const Vector3 &v)
-    const
+Vector3 Vector3::operator+(const Vector3& v)
+const
 {
     return Vector3(x + v.x, y + v.y, z + v.z);
 }
 
 
 #pragma mark-subraction3D
-void Vector3::operator-=(const Vector3 &v)
+void Vector3::operator-=(const Vector3& v)
 {
     x -= v.x;
     y -= v.y;
     z -= v.z;
 }
 
-Vector3 Vector3::operator-(const Vector3 &v)
-    const
+Vector3 Vector3::operator-(const Vector3& v)
+const
 {
     return Vector3(x - v.x, y - v.y, z - v.z);
 }
@@ -277,41 +277,41 @@ Vector3 Vector3::operator%(const float v)
 
 
 #pragma mark-dot product3D
-float Vector3::operator*(const Vector3 &v)
-    const
+float Vector3::operator*(const Vector3& v)
+const
 {
     return (x * v.x + y * v.y + z * v.z);
 }
 
-float Vector3::dot(const Vector3 &v)
-    const
+float Vector3::dot(const Vector3& v)
+const
 {
     return (x * v.x + y * v.y + z * v.z);
 }
 
-float Vector3::angle(const Vector3 &v)
+float Vector3::angle(const Vector3& v)
 {
 
 }
 
-void Vector3::operator%=(const Vector3 &v)
+void Vector3::operator%=(const Vector3& v)
 {
     *this = cross(v);
 }
 
-Vector3 Vector3::operator%(const Vector3 &v) const
+Vector3 Vector3::operator%(const Vector3& v) const
 {
     return Vector3(y * v.z - z * v.y,
-                   z * v.x - x * v.z,
-                   x * v.y - y * v.x);
+        z * v.x - x * v.z,
+        x * v.y - y * v.x);
 }
 
-Vector3 Vector3::cross(const Vector3 &v) const
+Vector3 Vector3::cross(const Vector3& v) const
 {
 
     return Vector3(y * v.z - z * v.y,
-                   z * v.x - x * v.z,
-                   x * v.y - y * v.x);
+        z * v.x - x * v.z,
+        x * v.y - y * v.x);
 }
 
 #pragma mark-conjugate3D
@@ -368,7 +368,7 @@ void Vector3::negate()
 }
 
 #pragma mark-rotating vector by quaternion
-Vector3 Vector3::RotateVectorAboutAngleAndAxis(float uAngle, Vector3 &uAxis)
+Vector3 Vector3::RotateVectorAboutAngleAndAxis(float uAngle, Vector3& uAxis)
 {
     // Convert this our vector into a pure quaternion
     Quaternion p(0, (*this));
