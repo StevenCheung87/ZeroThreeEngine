@@ -8,7 +8,9 @@ ZeroThree Engine is a game engine created by Steven Cheung at 18 years old. But 
 
 
 **Update -> **
+
 **13/01/2022 : Finding it hard to make time for this. Hard to gauge when this would be picked up again.**
+
 **04/01/2024 : Studying for my masters so this is again taking a sabatical, will look to restart this during summer.**
 
 ---
